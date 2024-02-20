@@ -20,7 +20,11 @@
                 @mouseleave="startAutoplay()"
             >
 
-                <div v-for="(currentSlide, index) in slides" v-show="index == currentSlideIndex" class="item">
+                <div 
+                    v-for="(currentSlide, index) in slides" 
+                    class="item"
+                    :class=" index == currentSlideIndex ? 'active' : index < currentSlideIndex ? 'prev' : 'next' "
+                >
                     <img :src="currentSlide.image" :alt="currentSlide.title" />
                     <div class="text">
                         <h3>

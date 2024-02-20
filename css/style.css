@@ -55,7 +55,8 @@
     opacity: 1;
 }
 
-.prev, .next {
+.thumbs .prev,
+.thumbs .next {
     width: 20px;
     height: 20px;
     margin: 10px 0;
@@ -102,4 +103,34 @@ oppure i caratteri ∧ (&and;) e ∨ (&or;)
     bottom: 35%;
     left: 50%;
     transform: translate(-50%) rotate(135deg);
+}
+
+
+
+
+/* personalizzazione */
+.slider-wrapper {
+    position: relative;
+    left: 350px;
+}
+
+.item {
+    position: absolute;
+    top: 0;
+    right: 160px;
+
+    opacity: 1;
+    transition: opacity .7s, transform .7s ease;
+}
+
+.item:not(.active) {
+    opacity: 0;
+}
+
+.item.prev {
+    transform: translateY(-100%);
+}
+
+.item.next {
+    transform: translateY(100%);
 }
