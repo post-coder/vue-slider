@@ -36,6 +36,8 @@ createApp({
                 }
             ],
 
+            autoplayTimer: null,
+
         }
     },
 
@@ -61,13 +63,26 @@ createApp({
             this.currentSlideIndex = newIndex;
         },
 
+        stopAutoplay() {
+            // bloccare l'autoplay
+            clearInterval(this.autoplayTimer);
+        },
+
+        startAutoplay() {
+            this.autoplayTimer = setInterval(this.nextSlide, 3000);
+        },
+
     },
 
     mounted() {
+        // tutto il codice che scrivo qui dentro verrà eseguito quando l'applicazione
+        // ha finito di essere montata, ovvero quando tutte le sue funzionalità e il layout html
+        // è stato caricato
         
         // avviare l'autoplay dello slideshow
-        const autoplayTimer = setInterval(this.nextSlide, 3000);
+        this.startAutoplay();
 
     },
 }).mount("#app");
+
 
