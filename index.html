@@ -23,7 +23,9 @@
                 <div v-for="(currentSlide, index) in slides" v-show="index == currentSlideIndex" class="item">
                     <img :src="currentSlide.image" :alt="currentSlide.title" />
                     <div class="text">
-                        <h3>{{ currentSlide.title }}</h3>
+                        <h3>
+                            {{ currentSlide.title }}
+                        </h3>
                         <p>
                             {{ currentSlide.text }}
                         </p>
@@ -34,7 +36,12 @@
                     <div @click="prevSlide()" class="prev"></div>
                     <div @click="nextSlide()" class="next"></div>
 
-                    <div v-for="(currentSlide, index) in slides" @click="changeSlide(index)" class="thumb active">
+                    <div 
+                        v-for="(currentSlide, index) in slides" 
+                        @click="changeSlide(index)" 
+                        class="thumb"
+                        :class=" index == currentSlideIndex ? 'active' : '' "
+                    >
                         <img :src="currentSlide.image" alt="Svezia" />
                     </div>
                 </div>
